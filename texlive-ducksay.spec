@@ -1,6 +1,6 @@
 Name:		texlive-ducksay
-Version:	64655
-Release:	2
+Version:	70816
+Release:	1
 Summary:	Draw ASCII art of animals saying a specified message
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ducksay
