@@ -3,7 +3,7 @@ Version:	70816
 Release:	1
 Summary:	Draw ASCII art of animals saying a specified message
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ducksay
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ducksay
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.doc.r%{version}.tar.xz
