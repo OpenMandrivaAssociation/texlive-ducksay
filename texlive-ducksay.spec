@@ -1,42 +1,26 @@
-Name:		texlive-ducksay
-Version:	70816
-Release:	1
+%global tl_name ducksay
+%global tl_revision 76911
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.8
+Release:	%{tl_revision}.1
 Summary:	Draw ASCII art of animals saying a specified message
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ducksay
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ducksay.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package draws ASCII art of animals saying a specified
-message. The following macros are available: \ducksay
-\duckthink \DefaultAnimal \AddAnimal \DucksayOptions Multi-line
-messages are now fully supported. The package comes with two
-versions, choosable with the version key.
+The package draws ASCII art of animals saying a specified message. The
+following macros are available: \ducksay \duckthink \DefaultAnimal
+\AddAnimal \DucksayOptions Multi-line messages are now fully supported.
+The package comes with two versions, choosable with the version key.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/ducksay
-%{_texmfdistdir}/tex/latex/ducksay
-%doc %{_texmfdistdir}/doc/latex/ducksay
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
